@@ -17,6 +17,10 @@
     "2026-09-29T07:00:00-04:00|EUR|ECB President Lagarde Speaks",
     "2026-09-29T10:00:00-04:00|USD|CB Consumer Confidence",
     "2026-09-29T10:00:00-04:00|USD|JOLTS Job Openings",
-    "2026-09-30T02:29:00-04:00|EUR|German Prelim CPI m/m"
+    "2026-09-30T02:29:00-04:00|EUR|German Prelim CPI m/m",
+    "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
+    "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
+    "2026-09-30T08:30:00-04:00|USD|Final GDP q/q",
+    "2026-09-30T08:30:00-04:00|USD|Final GDP Price Index q/q"
   ]
 }
