@@ -348,22 +348,37 @@ def buscar_en_nasdaq(e, filas):
     return None
 
 
-def sentido(fila, actual, esperado, divisa):
-    """Por encima/debajo de lo esperado y qué suele significar para la divisa (según Nasdaq)."""
+# Cómo suele reaccionar el S&P 500 a un dato de EE. UU. por ENCIMA de lo esperado:
+# +1 positivo, -1 negativo, 0 sin lectura clara. Primera coincidencia (lo específico antes).
+SP500 = [
+    ("unemployment", -1), ("jobless", -1), ("claims", -1),
+    ("crude oil", 0), ("natural gas", 0), ("bill auction", 0), ("bond auction", 0), ("trade balance", 0),
+    ("cpi", -1), ("pce", -1), ("ppi", -1), ("price index", -1), ("hourly earnings", -1),
+    ("employment cost", -1), ("inflation expectations", -1), ("prices", -1),
+    ("federal funds rate", -1), ("interest rate", -1),
+    ("non-farm", 1), ("nonfarm", 1), ("employment change", 1), ("jolts", 1),
+    ("gdp", 1), ("retail sales", 1), ("pmi", 1), ("confidence", 1), ("sentiment", 1),
+    ("durable goods", 1), ("industrial production", 1), ("home sales", 1), ("housing starts", 1),
+    ("building permits", 1), ("empire state", 1), ("philly fed", 1), ("personal spending", 1),
+]
+
+
+def sentido(e, actual, esperado):
+    """Por encima/debajo de lo esperado y cómo suele tomarlo el S&P 500 (solo datos de EE. UU.)."""
     if actual is None or esperado is None:
         return ""
     if actual == esperado:
         return "🎯 En línea con lo esperado."
     arriba = actual > esperado
     txt = "📈 Por encima de lo esperado" if arriba else "📉 Por debajo de lo esperado"
-    desc = html.unescape(fila.get("description") or "").lower()
-    if "higher than expected" in desc and "positive" in desc.split("higher than expected")[1][:80]:
-        bueno = arriba
-    elif "lower than expected" in desc and "positive" in desc.split("lower than expected")[1][:80]:
-        bueno = not arriba
-    else:
+    if e["country"] != "USD":
         return txt + "."
-    return f"{txt} → {'positivo' if bueno else 'negativo'} para el {divisa}."
+    t = e["title"].lower()
+    efecto = next((s for clave, s in SP500 if clave in t), 0)
+    if not efecto:
+        return txt + "."
+    bueno = arriba if efecto > 0 else not arriba
+    return f"{txt} → suele ser {'🟢 positivo' if bueno else '🔴 negativo'} para el S&P 500."
 
 
 def texto_resultado(e, fila):
@@ -384,7 +399,7 @@ def texto_resultado(e, fila):
             ant += f" (revisado {revisado})"
         partes.append(ant)
     lineas.append(" · ".join(partes))
-    s = sentido(fila, numero(actual), numero(esperado_txt), e["country"])
+    s = sentido(e, numero(actual), numero(esperado_txt))
     if s:
         lineas.append(s)
     return "\n".join(lineas)
