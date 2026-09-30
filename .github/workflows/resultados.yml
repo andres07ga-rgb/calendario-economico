@@ -1,0 +1,30 @@
+name: Calendario - resultados
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # repo público: los minutos de Actions no cuentan
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: calendario
+  cancel-in-progress: false
+jobs:
+  resultados:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Datos publicados
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python calendario.py resultados
+      - name: Guardar estado
+        if: always()
+        run: |
+          git config user.name "calendario-bot"
+          git config user.email "calendario-bot@users.noreply.github.com"
+          git add estado.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Resultados publicados" && git pull --rebase && git push)

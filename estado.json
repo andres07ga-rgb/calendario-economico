@@ -1,0 +1,22 @@
+{
+  "ultima_noche": null,
+  "programados": [
+    "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
+    "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
+    "2026-09-30T08:30:00-04:00|USD|Final GDP q/q",
+    "2026-09-30T08:30:00-04:00|USD|Final GDP Price Index q/q",
+    "2026-09-30T15:30:00-04:00|USD|President Trump Speaks",
+    "2026-09-30T18:00:00-04:00|USD|FOMC Member Kashkari Speaks",
+    "2026-10-01T02:30:00-04:00|CHF|CPI m/m",
+    "2026-10-01T04:00:00-04:00|GBP|BOE Gov Bailey Speaks",
+    "2026-10-01T08:30:00-04:00|USD|Unemployment Claims",
+    "2026-10-01T09:30:00-04:00|EUR|ECB President Lagarde Speaks"
+  ],
+  "reportados": [
+    "2026-09-28T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
+    "2026-09-29T07:00:00-04:00|EUR|ECB President Lagarde Speaks",
+    "2026-09-29T10:00:00-04:00|USD|CB Consumer Confidence",
+    "2026-09-29T10:00:00-04:00|USD|JOLTS Job Openings",
+    "2026-09-30T02:29:00-04:00|EUR|German Prelim CPI m/m"
+  ]
+}

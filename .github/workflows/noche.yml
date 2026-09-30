@@ -1,0 +1,43 @@
+name: Calendario - resumen y recordatorios
+on:
+  schedule:
+    # 21:00 de España en verano (19 UTC) e invierno (20 UTC); calendario.py solo actúa a las 21 h.
+    - cron: "0 19,20 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: calendario
+  cancel-in-progress: false
+jobs:
+  noche:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Resumen semanal y recordatorios
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python calendario.py noche --forzar
+          else
+            python calendario.py noche
+          fi
+      - name: Guardar estado
+        run: |
+          git config user.name "calendario-bot"
+          git config user.email "calendario-bot@users.noreply.github.com"
+          git add estado.json semana.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Estado calendario" && git pull --rebase && git push)
+      - name: Avisar si ha fallado
+        if: failure()
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          curl -s -H "Title: ❌ Falló el calendario económico" -H "Priority: high" \
+            -H "Click: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            -d "La ejecución nocturna ha fallado. Toca para ver el error." "https://ntfy.sh/$NTFY_TOPIC"
