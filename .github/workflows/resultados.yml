@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
       - name: Datos publicados
         env:
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || secrets.YOUR_SECRET_NAME }}
         run: python calendario.py resultados
       - name: Guardar estado
         if: always()

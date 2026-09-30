@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
       - name: Resumen semanal y recordatorios
         env:
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || secrets.YOUR_SECRET_NAME }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             python calendario.py noche --forzar
@@ -36,7 +36,7 @@ jobs:
       - name: Avisar si ha fallado
         if: failure()
         env:
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || secrets.YOUR_SECRET_NAME }}
         run: |
           curl -s -H "Title: ❌ Falló el calendario económico" -H "Priority: high" \
             -H "Click: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
