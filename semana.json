@@ -1,5 +1,5 @@
 {
-  "descargado": "2026-09-30T21:04+02:00",
+  "descargado": "2026-10-01T21:02+02:00",
   "eventos": [
     {
       "title": "ECB President Lagarde Speaks",
@@ -186,7 +186,7 @@
       "country": "USD",
       "date": "2026-10-02T08:30:00-04:00",
       "impact": "High",
-      "forecast": "90K",
+      "forecast": "89K",
       "previous": "162K",
       "id": "2026-10-02T08:30:00-04:00|USD|Non-Farm Employment Change"
     },

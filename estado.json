@@ -1,5 +1,5 @@
 {
-  "ultima_noche": "2026-09-30",
+  "ultima_noche": "2026-10-01",
   "programados": [
     "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
     "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
@@ -12,7 +12,13 @@
     "2026-10-01T08:30:00-04:00|USD|Unemployment Claims",
     "2026-10-01T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
     "2026-10-01T10:00:00-04:00|USD|FOMC Member Waller Speaks",
-    "2026-10-01T10:00:00-04:00|USD|ISM Manufacturing PMI"
+    "2026-10-01T10:00:00-04:00|USD|ISM Manufacturing PMI",
+    "2026-10-01T19:30:00-04:00|JPY|Tokyo Core CPI y/y",
+    "2026-10-02T05:00:00-04:00|EUR|Core CPI Flash Estimate y/y",
+    "2026-10-02T05:00:00-04:00|EUR|CPI Flash Estimate y/y",
+    "2026-10-02T08:30:00-04:00|USD|Average Hourly Earnings m/m",
+    "2026-10-02T08:30:00-04:00|USD|Non-Farm Employment Change",
+    "2026-10-02T08:30:00-04:00|USD|Unemployment Rate"
   ],
   "reportados": [
     "2026-09-28T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
