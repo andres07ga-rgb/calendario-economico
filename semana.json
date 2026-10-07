@@ -1,5 +1,5 @@
 {
-  "descargado": "2026-10-06T21:02+02:00",
+  "descargado": "2026-10-07T21:05+02:00",
   "eventos": [
     {
       "title": "ISM Services PMI",
@@ -18,6 +18,15 @@
       "forecast": "",
       "previous": "",
       "id": "2026-10-06T02:35:00-04:00|JPY|BOJ Gov Ueda Speaks"
+    },
+    {
+      "title": "President Trump Speaks",
+      "country": "USD",
+      "date": "2026-10-07T13:00:00-04:00",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": "",
+      "id": "2026-10-07T13:00:00-04:00|USD|President Trump Speaks"
     },
     {
       "title": "FOMC Meeting Minutes",
@@ -60,7 +69,7 @@
       "country": "USD",
       "date": "2026-10-09T10:00:00-04:00",
       "impact": "Medium",
-      "forecast": "47.6",
+      "forecast": "47.5",
       "previous": "47.8",
       "id": "2026-10-09T10:00:00-04:00|USD|Prelim UoM Consumer Sentiment"
     },
