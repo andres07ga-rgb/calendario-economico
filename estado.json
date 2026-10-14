@@ -54,6 +54,10 @@
     "2026-10-02T08:30:00-04:00|USD|Unemployment Rate",
     "2026-10-08T08:30:00-04:00|USD|Unemployment Claims",
     "2026-10-09T10:00:00-04:00|USD|Prelim UoM Consumer Sentiment",
-    "2026-10-09T10:00:00-04:00|USD|Prelim UoM Inflation Expectations"
+    "2026-10-09T10:00:00-04:00|USD|Prelim UoM Inflation Expectations",
+    "2026-10-14T08:30:00-04:00|USD|Core CPI m/m",
+    "2026-10-14T08:30:00-04:00|USD|Core CPI y/y",
+    "2026-10-14T08:30:00-04:00|USD|CPI m/m",
+    "2026-10-14T08:30:00-04:00|USD|CPI y/y"
   ]
 }
