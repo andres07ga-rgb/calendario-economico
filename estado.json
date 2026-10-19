@@ -1,5 +1,5 @@
 {
-  "ultima_noche": "2026-10-18",
+  "ultima_noche": "2026-10-19",
   "programados": [
     "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
     "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
@@ -44,7 +44,8 @@
     "2026-10-15T08:30:00-04:00|USD|Unemployment Claims",
     "2026-10-15T22:00:00-04:00|GBP|BOE Gov Bailey Speaks",
     "2026-10-15T23:30:00-04:00|USD|Fed Chairman Warsh Speaks",
-    "2026-10-17T02:45:00-04:00|GBP|BOE Gov Bailey Speaks"
+    "2026-10-17T02:45:00-04:00|GBP|BOE Gov Bailey Speaks",
+    "2026-10-20T02:00:00-04:00|GBP|Average Earnings Index 3m/y"
   ],
   "reportados": [
     "2026-09-28T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
