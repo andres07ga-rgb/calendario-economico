@@ -1,5 +1,5 @@
 {
-  "descargado": "2026-10-20T21:23+02:00",
+  "descargado": "2026-10-21T21:22+02:00",
   "eventos": [
     {
       "title": "Average Earnings Index 3m/y",
@@ -114,7 +114,7 @@
       "country": "USD",
       "date": "2026-10-23T09:45:00-04:00",
       "impact": "Medium",
-      "forecast": "57.8",
+      "forecast": "57.9",
       "previous": "58.7",
       "id": "2026-10-23T09:45:00-04:00|USD|Flash Services PMI"
     },
