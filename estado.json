@@ -89,6 +89,8 @@
     "2026-10-23T03:15:00-04:00|EUR|French Flash Manufacturing PMI",
     "2026-10-23T03:15:00-04:00|EUR|French Flash Services PMI",
     "2026-10-23T03:30:00-04:00|EUR|German Flash Manufacturing PMI",
-    "2026-10-23T03:30:00-04:00|EUR|German Flash Services PMI"
+    "2026-10-23T03:30:00-04:00|EUR|German Flash Services PMI",
+    "2026-10-23T04:30:00-04:00|GBP|Flash Manufacturing PMI",
+    "2026-10-23T04:30:00-04:00|GBP|Flash Services PMI"
   ]
 }
