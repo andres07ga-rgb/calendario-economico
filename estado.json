@@ -91,6 +91,10 @@
     "2026-10-23T03:30:00-04:00|EUR|German Flash Manufacturing PMI",
     "2026-10-23T03:30:00-04:00|EUR|German Flash Services PMI",
     "2026-10-23T04:30:00-04:00|GBP|Flash Manufacturing PMI",
-    "2026-10-23T04:30:00-04:00|GBP|Flash Services PMI"
+    "2026-10-23T04:30:00-04:00|GBP|Flash Services PMI",
+    "2026-10-23T09:45:00-04:00|USD|Flash Manufacturing PMI",
+    "2026-10-23T09:45:00-04:00|USD|Flash Services PMI",
+    "2026-10-23T10:00:00-04:00|USD|Revised UoM Consumer Sentiment",
+    "2026-10-23T10:00:00-04:00|USD|Revised UoM Inflation Expectations"
   ]
 }
