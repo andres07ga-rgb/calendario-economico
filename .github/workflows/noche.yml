@@ -1,8 +1,9 @@
 name: Calendario - resumen y recordatorios
 on:
   schedule:
-    # 21:00 de España en verano (19 UTC) e invierno (20 UTC); calendario.py solo actúa a las 21 h.
-    - cron: "0 19,20 * * *"
+    # Cada 3 h: GitHub retrasa (o se salta) los cron programados, así que no se depende de una hora
+    # exacta. calendario.py manda el resumen una vez por semana y no repite recordatorios.
+    - cron: "23 */3 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -22,11 +23,7 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || secrets.YOUR_SECRET_NAME }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python calendario.py noche --forzar
-          else
-            python calendario.py noche
-          fi
+          python calendario.py noche
       - name: Guardar estado
         run: |
           git config user.name "calendario-bot"

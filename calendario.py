@@ -1,8 +1,10 @@
 """Calendario económico (carpetas rojas y naranjas de Forex Factory) por ntfy.
 
-  python calendario.py noche       Todas las noches a las 21 h (España): guarda la semana de
-                                   Forex Factory, el domingo manda el resumen semanal y deja
-                                   programados en ntfy los recordatorios de 30 min antes.
+  python calendario.py noche       Varias veces al día (GitHub retrasa los cron hasta horas, así
+                                   que no depende de una hora exacta): guarda la semana de Forex
+                                   Factory, manda una vez por semana el resumen (desde el domingo
+                                   a las 18 h) y deja programados en ntfy los recordatorios de
+                                   30 min antes.
   python calendario.py resultados  Cada 10 min: cuando sale un dato, manda cómo salió frente a lo
                                    esperado y al anterior (dato real del calendario de Nasdaq,
                                    porque Forex Factory no deja entrar a los servidores de GitHub).
@@ -43,14 +45,14 @@ PAISES_NASDAQ = {"USD": {"United States"}, "GBP": {"United Kingdom"}, "JPY": {"J
                  "CAD": {"Canada"}, "AUD": {"Australia"}, "NZD": {"New Zealand"},
                  "CHF": {"Switzerland"}, "CNY": {"China"}}
 DIAS_SEMANA = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
-HORA_NOCHE = 21            # hora de España del envío nocturno
+HORA_RESUMEN = 18          # desde esta hora del domingo (España) ya se manda el resumen semanal
 MINUTOS_ANTES = 30
-VENTANA_H = 26             # recordatorios que se programan en cada pasada nocturna
+VENTANA_H = 60             # recordatorios que se programan en cada pasada (ntfy admite hasta 72 h)
 LIMITE_NTFY = 3800         # bytes; por encima ntfy lo convierte en adjunto
 # Resultados: eventos que empiezan entre 40 min atrás y 11 min adelante; se espera al dato hasta
 # 10 min después de la hora (Nasdaq suele tardar segundos).
 RES_ATRAS, RES_ADELANTE, RES_ESPERA = 40, 11, 10
-RES_TARDE_H = 8           # datos que se retrasan: se siguen buscando (sin esperar) hasta 8 h
+RES_TARDE_H = 24          # GitHub puede saltarse pasadas varias horas: se siguen buscando hasta 24 h
 
 # (fragmento del título en minúsculas, nombre en español, qué es / por qué importa).
 # Se usa la primera coincidencia, así que lo más específico va antes.
@@ -411,20 +413,31 @@ def tiene_dato(e):
 
 # ---------------------------------------------------------------- modos
 
+def semana_resumen(ahora):
+    """Lunes de la semana que resume la pasada actual: desde el domingo a las 18 h, la que empieza;
+    de lunes a sábado, la que está en curso."""
+    if ahora.weekday() == 6 and ahora.hour >= HORA_RESUMEN:
+        return (ahora + timedelta(days=1)).date()
+    return (ahora - timedelta(days=ahora.weekday())).date()
+
+
 def modo_noche(cfg, estado, ahora, forzar, prueba):
-    if not forzar and (ahora.hour != HORA_NOCHE or estado.get("ultima_noche") == str(ahora.date())):
-        print(f"No toca ({ahora:%d/%m %H:%M} España).")
-        return
     eventos = descargar_semana(cfg)
     if not prueba:
         guardar(SEMANA, {"descargado": ahora.isoformat(timespec="minutes"), "eventos": eventos})
+    futuros = [e for e in eventos if hora_es(e) > ahora]
 
-    if ahora.weekday() == 6 or forzar:
-        futuros = [e for e in eventos if hora_es(e) > ahora]
+    # Resumen semanal: una vez por semana, en la primera pasada desde el domingo a las 18 h.
+    lunes = str(semana_resumen(ahora))
+    if forzar or (estado.get("resumen_semana") != lunes and futuros):
         mensajes = resumen_semanal(futuros) if futuros else ["Esta semana no hay eventos rojos ni naranjas."]
         for i, m in enumerate(mensajes, 1):
             titulo = "🗓️ Forex Factory: la semana" + (f" ({i}/{len(mensajes)})" if len(mensajes) > 1 else "")
             print(titulo + "\n" + m + "\n") if prueba else publicar(titulo, m, 3)
+        if not forzar:
+            estado["resumen_semana"] = lunes
+    else:
+        print(f"Resumen de la semana del {lunes}: ya enviado o aún sin datos.")
 
     programados = estado.setdefault("programados", [])
     ya = set(programados)
@@ -442,9 +455,10 @@ def modo_noche(cfg, estado, ahora, forzar, prueba):
         publicar(titulo, mensaje, prio, en=aviso)
         programados += [e["id"] for e in grupo]
         print(f"Programado {aviso:%d/%m %H:%M}: {titulo}")
+    if not grupos:
+        print("Ningún recordatorio nuevo que programar.")
     estado["programados"] = programados[-400:]
-    if not forzar:
-        estado["ultima_noche"] = str(ahora.date())
+    estado["ultima_noche"] = ahora.isoformat(timespec="minutes")
 
 
 def modo_resultados(cfg, estado, ahora, forzar, prueba):
