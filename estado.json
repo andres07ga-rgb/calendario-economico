@@ -1,5 +1,5 @@
 {
-  "ultima_noche": "2026-10-23",
+  "ultima_noche": "2026-11-10T19:30+01:00",
   "programados": [
     "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
     "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
@@ -48,7 +48,12 @@
     "2026-10-20T02:00:00-04:00|GBP|Average Earnings Index 3m/y",
     "2026-10-21T02:00:00-04:00|GBP|CPI y/y",
     "2026-10-21T09:00:00-04:00|GBP|BOE Gov Bailey Speaks",
-    "2026-10-22T08:30:00-04:00|USD|Unemployment Claims"
+    "2026-10-22T08:30:00-04:00|USD|Unemployment Claims",
+    "2026-11-11T04:45:00-05:00|EUR|ECB President Lagarde Speaks",
+    "2026-11-12T02:00:00-05:00|GBP|GDP m/m",
+    "2026-11-12T02:00:00-05:00|GBP|Prelim GDP q/q",
+    "2026-11-12T08:30:00-05:00|USD|Unemployment Claims",
+    "2026-11-12T14:30:00-05:00|EUR|ECB President Lagarde Speaks"
   ],
   "reportados": [
     "2026-09-28T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
@@ -96,5 +101,6 @@
     "2026-10-23T09:45:00-04:00|USD|Flash Services PMI",
     "2026-10-23T10:00:00-04:00|USD|Revised UoM Consumer Sentiment",
     "2026-10-23T10:00:00-04:00|USD|Revised UoM Inflation Expectations"
-  ]
+  ],
+  "resumen_semana": "2026-11-09"
 }
