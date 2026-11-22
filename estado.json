@@ -1,5 +1,5 @@
 {
-  "ultima_noche": "2026-11-22T12:42+01:00",
+  "ultima_noche": "2026-11-22T20:51+01:00",
   "programados": [
     "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
     "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
@@ -144,5 +144,5 @@
     "2026-11-20T10:00:00-05:00|USD|Revised UoM Consumer Sentiment",
     "2026-11-20T10:00:00-05:00|USD|Revised UoM Inflation Expectations"
   ],
-  "resumen_semana": "2026-11-16"
+  "resumen_semana": "2026-11-23"
 }
