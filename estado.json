@@ -1,5 +1,5 @@
 {
-  "ultima_noche": "2026-11-22T20:51+01:00",
+  "ultima_noche": "2026-11-23T02:51+01:00",
   "programados": [
     "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
     "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
@@ -81,7 +81,11 @@
     "2026-11-23T04:30:00-05:00|GBP|Flash Services PMI",
     "2026-11-23T09:45:00-05:00|USD|Flash Manufacturing PMI",
     "2026-11-23T09:45:00-05:00|USD|Flash Services PMI",
-    "2026-11-24T10:00:00-05:00|USD|CB Consumer Confidence"
+    "2026-11-24T10:00:00-05:00|USD|CB Consumer Confidence",
+    "2026-11-25T08:30:00-05:00|USD|Core PCE Price Index m/m",
+    "2026-11-25T08:30:00-05:00|USD|Prelim GDP q/q",
+    "2026-11-25T08:30:00-05:00|USD|Prelim GDP Price Index q/q",
+    "2026-11-25T08:30:00-05:00|USD|Unemployment Claims"
   ],
   "reportados": [
     "2026-09-28T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
