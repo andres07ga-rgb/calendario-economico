@@ -1,5 +1,5 @@
 {
-  "ultima_noche": "2026-11-24T03:24+01:00",
+  "ultima_noche": "2026-11-24T14:58+01:00",
   "programados": [
     "2026-09-30T08:15:00-04:00|USD|ADP Non-Farm Employment Change",
     "2026-09-30T08:30:00-04:00|USD|Core PCE Price Index m/m",
@@ -85,7 +85,8 @@
     "2026-11-25T08:30:00-05:00|USD|Core PCE Price Index m/m",
     "2026-11-25T08:30:00-05:00|USD|Prelim GDP q/q",
     "2026-11-25T08:30:00-05:00|USD|Prelim GDP Price Index q/q",
-    "2026-11-25T08:30:00-05:00|USD|Unemployment Claims"
+    "2026-11-25T08:30:00-05:00|USD|Unemployment Claims",
+    "2026-11-26T18:30:00-05:00|JPY|Tokyo Core CPI y/y"
   ],
   "reportados": [
     "2026-09-28T09:30:00-04:00|EUR|ECB President Lagarde Speaks",
