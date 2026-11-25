@@ -1,5 +1,5 @@
 {
-  "descargado": "2026-11-25T09:53+01:00",
+  "descargado": "2026-11-25T20:27+01:00",
   "eventos": [
     {
       "title": "French Flash Manufacturing PMI",
@@ -108,6 +108,15 @@
       "forecast": "2.3%",
       "previous": "2.3%",
       "id": "2026-11-25T08:30:00-05:00|USD|Prelim GDP Price Index q/q"
+    },
+    {
+      "title": "Monetary Policy Report Hearings",
+      "country": "GBP",
+      "date": "2026-11-25T09:15:00-05:00",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": "",
+      "id": "2026-11-25T09:15:00-05:00|GBP|Monetary Policy Report Hearings"
     },
     {
       "title": "Tokyo Core CPI y/y",
